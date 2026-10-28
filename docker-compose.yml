@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /app/data
+      PORT: 3000
+    ports:
+      # only reachable from the host (Caddy/nginx proxies to it)
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - data:/app/data
+
+volumes:
+  data:

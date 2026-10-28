@@ -1,0 +1,31 @@
+{
+  "name": "randommer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:server": "tsx watch --env-file=.env server/src/index.ts",
+    "dev:web": "vite",
+    "build:web": "vite build",
+    "build": "vite build && tsc -p server",
+    "start": "node --env-file=.env server/dist/index.js",
+    "typecheck": "tsc -p server --noEmit && tsc -p web --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/rate-limit": "^11.2.1",
+    "@fastify/static": "^10.1.8",
+    "@google/genai": "^2.31.0",
+    "better-sqlite3": "^13.0.3",
+    "fastify": "^5.12.7",
+    "grammy": "^1.46.0",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
